@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - main
+
+name: Release
+
+jobs:
+  release:
+    if: github.ref_name == 'main'
+    uses: genie-engineering/workflows/.github/workflows/publish-package.yml@stable
+    secrets: inherit
+    with:
+      publish-script: ""

@@ -1,0 +1,8 @@
+name: Check Labels
+
+on:
+  pull_request:
+
+jobs:
+  check-labels:
+    uses: genie-engineering/workflows/.github/workflows/check-labels.yml@stable

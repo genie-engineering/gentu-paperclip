@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - main
+
+name: Create Release
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.release.outputs.version }}
+    steps:
+      - uses: rymndhng/release-on-push-action@v0.28.0
+        id: release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          bump_version_scheme: patch
+          tag_prefix: v
